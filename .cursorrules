@@ -1,0 +1,25 @@
+# AI Resume Analyzer — Cursor Rules
+
+## Stack
+- Frontend: React + Vite + TypeScript + Tailwind CSS v4
+- Backend: Python FastAPI
+- AI: Gemini API (gemini-2.0-flash) via backend only
+
+## Code Style
+- Use TypeScript for all React files
+- Functional components only, use React hooks
+- Tailwind for ALL styling — no separate CSS files for components
+- Python: PEP8 style, type hints on all functions
+
+## Security Rules
+- NEVER put the Gemini API key in any frontend file
+- All Gemini API calls go through the FastAPI backend
+- Validate file type and size on both frontend AND backend
+
+## Behavior Rules
+- Make minimal changes — don't refactor unrelated code
+- Always explain what you changed and why
+- No TODOs left in code — everything must work
+- Show loading states for any async operation
+- Handle errors with user-friendly messages, not raw stack traces
+- AI must never invent experiences — only rephrase existing content

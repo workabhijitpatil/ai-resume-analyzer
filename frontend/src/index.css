@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+/* ─── Design tokens ─── */
+:root {
+  --navy: #0F1B2D;
+  --navy-mid: #1A2E4A;
+  --navy-light: #243a57;
+  --teal: #00D4AA;
+  --teal-dark: #00BFA0;
+  --teal-glow: rgba(0, 212, 170, 0.15);
+  --off-white: #F7F9FC;
+  --slate: #8BA3C2;
+  --red: #E53E3E;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* ─── Base ─── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--off-white);
+  color: #1a202c;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Shimmer animation for the Optimize button ─── */
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
+.btn-shimmer {
+  background: linear-gradient(90deg, var(--teal), #0097A7, var(--teal), #00E5C3, var(--teal));
+  background-size: 300% auto;
+  animation: shimmer 2s linear infinite;
+}
+
+/* ─── Pulse skeleton loader ─── */
+@keyframes pulse-skeleton {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.skeleton-line {
+  height: 12px;
+  border-radius: 6px;
+  background: #dde4ee;
+  animation: pulse-skeleton 1.4s ease-in-out infinite;
+}
+
+/* ─── Custom scrollbar for output panel ─── */
+.output-scroll::-webkit-scrollbar { width: 6px; }
+.output-scroll::-webkit-scrollbar-track { background: transparent; }
+.output-scroll::-webkit-scrollbar-thumb { background: #c0ccd8; border-radius: 3px; }
+.output-scroll::-webkit-scrollbar-thumb:hover { background: var(--slate); }
+
+/* ─── Drag-over highlight ─── */
+.drag-over {
+  border-color: var(--teal) !important;
+  background-color: var(--teal-glow) !important;
+}
+
+/* ─── Upload shake error animation ─── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-6px); }
+  40%       { transform: translateX(6px); }
+  60%       { transform: translateX(-4px); }
+  80%       { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+/* ─── Toast slide-in ─── */
+@keyframes slide-in {
+  from { transform: translateX(110%); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+.toast-enter { animation: slide-in 0.3s ease-out forwards; }
+
+/* ─── Fade-in for result panel ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up { animation: fade-up 0.4s ease-out forwards; }

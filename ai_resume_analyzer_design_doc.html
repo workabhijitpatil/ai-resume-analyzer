@@ -1,0 +1,296 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+
+  .dd { font-family: 'Inter', var(--font-sans); padding: 1.5rem 0; }
+  .dd h2 { font-family: 'Space Grotesk', var(--font-sans); font-size: 22px; font-weight: 600; color: var(--color-text-primary); margin: 0 0 0.25rem; }
+  .dd .sub { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 2rem; }
+
+  .block { margin-bottom: 2rem; }
+  .block-title { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin: 0 0 0.75rem; }
+
+  /* Color swatches */
+  .swatches { display: flex; gap: 10px; flex-wrap: wrap; }
+  .swatch { border-radius: 8px; padding: 10px 14px; min-width: 110px; }
+  .swatch-name { font-size: 11px; font-weight: 500; margin-bottom: 2px; }
+  .swatch-hex { font-size: 11px; font-family: var(--font-mono); opacity: 0.8; }
+  .swatch-role { font-size: 10px; margin-top: 4px; opacity: 0.7; }
+
+  /* Type specimens */
+  .type-row { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 8px; }
+  .type-role { font-size: 11px; color: var(--color-text-secondary); font-weight: 500; margin-bottom: 6px; }
+  .type-spec { font-size: 11px; color: var(--color-text-secondary); font-family: var(--font-mono); margin-top: 4px; }
+
+  /* Wireframe */
+  .wireframe { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 1.25rem; border: 0.5px solid var(--color-border-tertiary); }
+  .wf-nav { background: #0F1B2D; border-radius: 6px; padding: 10px 14px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .wf-logo { font-family: 'Space Grotesk', sans-serif; font-size: 14px; font-weight: 700; color: #00D4AA; }
+  .wf-nav-badge { font-size: 10px; color: #8BA3C2; }
+  .wf-hero { background: #0F1B2D; border-radius: 6px; padding: 16px 14px; margin-bottom: 12px; text-align: center; }
+  .wf-hero-headline { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 4px; line-height: 1.2; }
+  .wf-hero-headline span { color: #00D4AA; }
+  .wf-hero-sub { font-size: 11px; color: #8BA3C2; margin: 0; }
+  .wf-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .wf-panel { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: 6px; padding: 12px; }
+  .wf-label { font-size: 10px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .wf-upload { border: 1.5px dashed var(--color-border-secondary); border-radius: 6px; padding: 16px; text-align: center; margin-bottom: 8px; }
+  .wf-upload-icon { font-size: 22px; color: #00D4AA; display: block; }
+  .wf-upload-text { font-size: 11px; color: var(--color-text-secondary); margin-top: 4px; }
+  .wf-file-badge { background: #E1F5EE; color: #085041; font-size: 10px; padding: 3px 8px; border-radius: 4px; display: inline-block; margin-bottom: 8px; }
+  .wf-textarea { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; height: 80px; width: 100%; box-sizing: border-box; padding: 8px; font-size: 10px; color: var(--color-text-secondary); resize: none; }
+  .wf-btn { width: 100%; background: #00D4AA; color: #0F1B2D; font-family: 'Space Grotesk', sans-serif; font-size: 12px; font-weight: 700; padding: 10px; border-radius: 6px; border: none; cursor: pointer; margin-top: 8px; letter-spacing: 0.02em; }
+  .wf-btn:hover { background: #00BFA0; }
+  .wf-output-empty { height: 80px; background: var(--color-background-secondary); border: 0.5px dashed var(--color-border-tertiary); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--color-text-secondary); margin-bottom: 8px; }
+  .wf-output-filled { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); border-radius: 4px; padding: 8px; font-size: 10px; color: var(--color-text-primary); line-height: 1.6; height: 120px; overflow: hidden; margin-bottom: 8px; }
+  .wf-actions { display: flex; gap: 6px; }
+  .wf-action-btn { flex: 1; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: 4px; padding: 6px; font-size: 10px; color: var(--color-text-primary); text-align: center; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 4px; }
+  .wf-section-label { font-size: 10px; font-weight: 600; color: #00D4AA; margin-bottom: 6px; font-family: 'Space Grotesk', sans-serif; }
+  .wf-tab { display: flex; gap: 1px; margin-bottom: 8px; }
+  .wf-tab-item { flex: 1; padding: 5px; font-size: 9px; text-align: center; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-tertiary); }
+  .wf-tab-item.active { background: #0F1B2D; color: #fff; border-color: #0F1B2D; }
+  .wf-tab-item:first-child { border-radius: 4px 0 0 4px; }
+  .wf-tab-item:last-child { border-radius: 0 4px 4px 0; }
+
+  /* States */
+  .states-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .state-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+  .state-title { font-size: 11px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+  .state-body { font-size: 11px; color: var(--color-text-secondary); line-height: 1.5; }
+
+  /* Spacing */
+  .spacings { display: flex; gap: 8px; align-items: flex-end; flex-wrap: wrap; }
+  .sp { background: #00D4AA22; border: 1px solid #00D4AA; border-radius: 2px; display: flex; align-items: center; justify-content: center; }
+  .sp-label { font-size: 10px; color: var(--color-text-secondary); text-align: center; margin-top: 4px; font-family: var(--font-mono); }
+
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
+
+  .component-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .comp-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; }
+  .comp-title { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+</style>
+
+<div class="dd">
+  <h2 class="sr-only">AI Resume Analyzer — UI Design Document</h2>
+  <h2>Design.md — AI Resume Analyzer</h2>
+  <p class="sub">UI design document · v1 · Built for freshers, feels like a serious tool</p>
+
+  <!-- Color Palette -->
+  <div class="block">
+    <div class="block-title">Color Palette</div>
+    <div class="swatches">
+      <div class="swatch" style="background:#0F1B2D;">
+        <div class="swatch-name" style="color:#fff;">Navy</div>
+        <div class="swatch-hex" style="color:#8BA3C2;">#0F1B2D</div>
+        <div class="swatch-role" style="color:#8BA3C2;">Nav, hero bg, dark surfaces</div>
+      </div>
+      <div class="swatch" style="background:#00D4AA;">
+        <div class="swatch-name" style="color:#0F1B2D;">Teal</div>
+        <div class="swatch-hex" style="color:#085041;">#00D4AA</div>
+        <div class="swatch-role" style="color:#085041;">Primary CTA, accents, icons</div>
+      </div>
+      <div class="swatch" style="background:#F7F9FC; border: 0.5px solid #E2E8F0;">
+        <div class="swatch-name" style="color:#0F1B2D;">Off-white</div>
+        <div class="swatch-hex" style="color:#64748B;">#F7F9FC</div>
+        <div class="swatch-role" style="color:#64748B;">Page background</div>
+      </div>
+      <div class="swatch" style="background:#1A2E4A;">
+        <div class="swatch-name" style="color:#fff;">Navy mid</div>
+        <div class="swatch-hex" style="color:#8BA3C2;">#1A2E4A</div>
+        <div class="swatch-role" style="color:#8BA3C2;">Cards on dark bg</div>
+      </div>
+      <div class="swatch" style="background:#E53E3E;">
+        <div class="swatch-name" style="color:#fff;">Red</div>
+        <div class="swatch-hex" style="color:#fff;">#E53E3E</div>
+        <div class="swatch-role" style="color:#fff;">Error states only</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Typography -->
+  <div class="block">
+    <div class="block-title">Typography</div>
+    <div class="type-row">
+      <div class="type-role">Display / Headings</div>
+      <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:var(--color-text-primary); line-height:1.1;">Tailor your resume.<br><span style="color:#00D4AA;">Land the job.</span></div>
+      <div class="type-spec">Space Grotesk · 700 · used for H1, logo, CTA button, section titles</div>
+    </div>
+    <div class="type-row">
+      <div class="type-role">Body / UI Text</div>
+      <div style="font-family:'Inter',sans-serif; font-size:15px; color:var(--color-text-primary); line-height:1.7;">Paste your resume and a job description. Our AI rewrites your resume to match the role — better keywords, stronger phrasing, ATS-ready.</div>
+      <div class="type-spec">Inter · 400 · used for body text, labels, descriptions</div>
+    </div>
+    <div class="type-row">
+      <div class="type-role">Mono / Code / Output</div>
+      <div style="font-family:var(--font-mono); font-size:13px; color:var(--color-text-primary); line-height:1.6;">John Doe · johndoe@gmail.com · linkedin.com/in/johndoe</div>
+      <div class="type-spec">System mono · 400 · used for the optimized resume output text</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Wireframe / Mockup -->
+  <div class="block">
+    <div class="block-title">Layout Wireframe — Desktop (two-column)</div>
+    <div class="wireframe">
+      <div class="wf-nav">
+        <div class="wf-logo">ResumeAI</div>
+        <div class="wf-nav-badge">Powered by Claude</div>
+      </div>
+      <div class="wf-hero">
+        <p class="wf-hero-headline">Tailor your resume.<br><span>Land the job.</span></p>
+        <p class="wf-hero-sub">AI rewrites your resume to match any job description in seconds</p>
+      </div>
+      <div class="wf-cols">
+        <div class="wf-panel">
+          <div class="wf-section-label">01 — Your Resume</div>
+          <div class="wf-upload">
+            <i class="ti ti-upload wf-upload-icon" aria-hidden="true"></i>
+            <div class="wf-upload-text">Drop PDF or DOCX here<br>or click to browse</div>
+          </div>
+          <div class="wf-file-badge">✓ resume_abhi.pdf uploaded</div>
+          <div class="wf-section-label" style="margin-top:10px;">02 — Job Description</div>
+          <textarea class="wf-textarea" placeholder="Paste the full job description here..."></textarea>
+          <button class="wf-btn">✦ Optimize Resume</button>
+        </div>
+        <div class="wf-panel">
+          <div class="wf-section-label">03 — Optimized Resume</div>
+          <div class="wf-tab">
+            <div class="wf-tab-item active">Rewritten</div>
+            <div class="wf-tab-item">Changes made</div>
+          </div>
+          <div class="wf-output-filled">
+            <strong style="font-size:10px;">ABHI KULKARNI</strong><br>
+            AI/ML Engineer · Kolhapur, India<br>
+            abhi@email.com · linkedin.com/in/abhi<br><br>
+            <strong style="font-size:10px;">SUMMARY</strong><br>
+            Motivated AI/ML fresher with hands-on experience building GenAI applications using Claude API, FastAPI, and React. Seeking to contribute to early-stage AI startups...
+          </div>
+          <div class="wf-actions">
+            <div class="wf-action-btn"><i class="ti ti-copy" style="font-size:12px;" aria-hidden="true"></i> Copy</div>
+            <div class="wf-action-btn"><i class="ti ti-download" style="font-size:12px;" aria-hidden="true"></i> Download .txt</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- UI States -->
+  <div class="block">
+    <div class="block-title">UI States</div>
+    <div class="states-grid">
+      <div class="state-card">
+        <div class="state-title">Empty state</div>
+        <div class="state-body">Both panels show placeholder text. Button is disabled and grayed out. Upload area has dashed border with upload icon.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-title">Loading state</div>
+        <div class="state-body">Button shows animated shimmer: "✦ Optimizing..." — output panel shows a skeleton loader (3 gray lines, pulsing). User cannot click again.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-title">Success state</div>
+        <div class="state-body">Output panel fills with rewritten resume. Copy + Download buttons appear. A small teal badge: "Optimized for this JD" appears at the top.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-title">Error — wrong file type</div>
+        <div class="state-body">Red inline message below upload: "Only PDF and DOCX files are accepted." Upload box shakes briefly (CSS animation).</div>
+      </div>
+      <div class="state-card">
+        <div class="state-title">Error — API failure</div>
+        <div class="state-body">Toast notification (top-right): "Something went wrong. Try again." — red border, auto-dismisses in 4s.</div>
+      </div>
+      <div class="state-card">
+        <div class="state-title">Mobile state</div>
+        <div class="state-body">Two-column layout stacks vertically. Input panel on top, output panel below. Button stays full-width. Nav collapses to logo only.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Signature Element -->
+  <div class="block">
+    <div class="block-title">Signature Element — The "Optimize" Button</div>
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem;">
+      <div style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px; line-height: 1.6;">The single memorable moment in this UI. While the AI is working, the button switches from solid teal to an animated shimmer — a slow left-to-right gradient sweep — with the label changing to "✦ Optimizing your resume...". This is the only animation in the entire app, which makes it land harder.</div>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+        <button style="background:#00D4AA; color:#0F1B2D; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; padding:10px 20px; border-radius:6px; border:none; cursor:pointer;">✦ Optimize Resume</button>
+        <span style="font-size:12px; color:var(--color-text-secondary);">→ on click becomes →</span>
+        <button style="background:linear-gradient(90deg,#00D4AA,#0097A7,#00D4AA); background-size:200%; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:13px; color:#0F1B2D; padding:10px 20px; border-radius:6px; border:none; cursor:not-allowed; animation:shimmer 1.5s infinite linear;" disabled>✦ Optimizing...</button>
+      </div>
+      <style>@keyframes shimmer { 0%{background-position:0%} 100%{background-position:200%} }</style>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Spacing System -->
+  <div class="block">
+    <div class="block-title">Spacing System</div>
+    <div style="background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem;">
+      <div class="spacings">
+        <div>
+          <div class="sp" style="width:4px; height:4px;"></div>
+          <div class="sp-label">4px</div>
+        </div>
+        <div>
+          <div class="sp" style="width:8px; height:8px;"></div>
+          <div class="sp-label">8px</div>
+        </div>
+        <div>
+          <div class="sp" style="width:12px; height:12px;"></div>
+          <div class="sp-label">12px</div>
+        </div>
+        <div>
+          <div class="sp" style="width:16px; height:16px;"></div>
+          <div class="sp-label">16px</div>
+        </div>
+        <div>
+          <div class="sp" style="width:24px; height:24px;"></div>
+          <div class="sp-label">24px</div>
+        </div>
+        <div>
+          <div class="sp" style="width:32px; height:32px;"></div>
+          <div class="sp-label">32px</div>
+        </div>
+        <div>
+          <div class="sp" style="width:48px; height:48px;"></div>
+          <div class="sp-label">48px</div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 10px;">Base unit: 4px · Use multiples of 4 for all padding, margin, and gap values · Max content width: 1100px · Column gap: 24px</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Copy Guidelines -->
+  <div class="block">
+    <div class="block-title">Copy Guidelines</div>
+    <div class="component-grid">
+      <div class="comp-card">
+        <div class="comp-title">Use</div>
+        <ul style="font-size: 13px; color: var(--color-text-primary); padding-left: 1.2rem; margin: 0; line-height: 2;">
+          <li>"Optimize Resume"</li>
+          <li>"Paste job description"</li>
+          <li>"Copy to clipboard"</li>
+          <li>"Only PDF and DOCX accepted"</li>
+          <li>"Optimized for this JD ✓"</li>
+        </ul>
+      </div>
+      <div class="comp-card">
+        <div class="comp-title">Avoid</div>
+        <ul style="font-size: 13px; color: var(--color-text-secondary); padding-left: 1.2rem; margin: 0; line-height: 2;">
+          <li>"Submit" or "Upload file"</li>
+          <li>"Enter job description"</li>
+          <li>"Click here to copy"</li>
+          <li>"Invalid file format error"</li>
+          <li>"AI-powered synergy" 😅</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

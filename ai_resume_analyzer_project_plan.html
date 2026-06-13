@@ -1,0 +1,225 @@
+
+<style>
+  .plan { font-family: var(--font-sans); padding: 1rem 0; max-width: 680px; }
+  .section { margin-bottom: 2rem; }
+  .section-title { font-size: 18px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 1rem; display: flex; align-items: center; gap: 8px; }
+  .section-title i { font-size: 20px; }
+  .card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 10px; }
+  .label { font-size: 12px; color: var(--color-text-secondary); font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px; }
+  .value { font-size: 14px; color: var(--color-text-primary); line-height: 1.6; }
+  .feature-list { list-style: none; padding: 0; margin: 0; }
+  .feature-list li { font-size: 14px; color: var(--color-text-primary); padding: 6px 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list li i { color: var(--color-text-success); font-size: 16px; margin-top: 2px; flex-shrink: 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: var(--border-radius-md); }
+  .badge-teal { background: #E1F5EE; color: #085041; }
+  .badge-purple { background: #EEEDFE; color: #3C3489; }
+  .badge-amber { background: #FAEEDA; color: #633806; }
+  .checkpoint-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .checkpoint-row:last-child { border-bottom: none; }
+  .checkpoint-num { width: 28px; height: 28px; border-radius: 50%; background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 500; flex-shrink: 0; color: var(--color-text-secondary); }
+  .checkpoint-text { font-size: 14px; color: var(--color-text-primary); line-height: 1.5; }
+  .checkpoint-tag { font-size: 11px; color: var(--color-text-secondary); margin-top: 2px; }
+  .rule-block { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 0.75rem 1rem; margin-bottom: 8px; font-size: 13px; font-family: var(--font-mono); color: var(--color-text-primary); line-height: 1.7; }
+  .action-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  .action-row:last-child { border-bottom: none; }
+  .action-num { font-size: 20px; font-weight: 500; color: var(--color-text-secondary); min-width: 28px; }
+  .action-text { font-size: 14px; color: var(--color-text-primary); line-height: 1.5; }
+  .action-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 3px; }
+  .risk-row { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 0.5px solid var(--color-border-tertiary); font-size: 14px; color: var(--color-text-primary); }
+  .risk-row:last-child { border-bottom: none; }
+  .risk-row i { color: #BA7517; font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+  .stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .stack-item { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 10px 12px; }
+  .stack-key { font-size: 11px; color: var(--color-text-secondary); font-weight: 500; margin-bottom: 3px; }
+  .stack-val { font-size: 13px; color: var(--color-text-primary); font-weight: 500; }
+  .divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
+  .hero { padding: 1.25rem; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); margin-bottom: 1.5rem; }
+  .hero-title { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .hero-sub { font-size: 14px; color: var(--color-text-secondary); margin: 0; }
+</style>
+
+<div class="plan">
+  <h2 class="sr-only">AI Resume Analyzer & Job Matching System — Vibe Coding Project Plan</h2>
+
+  <div class="hero">
+    <p class="hero-title">AI Resume Analyzer</p>
+    <p class="hero-sub">Upload your resume → paste a job description → get an AI-optimized resume tailored to that JD</p>
+    <div style="margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+      <span class="badge badge-teal">Portfolio project</span>
+      <span class="badge badge-purple">Freshers can use it</span>
+      <span class="badge badge-amber">Built with Cursor</span>
+    </div>
+  </div>
+
+  <!-- PRD Section -->
+  <div class="section">
+    <h3 class="section-title"><i class="ti ti-file-description" aria-hidden="true"></i> PRD — Product Requirements Document</h3>
+
+    <div class="card">
+      <div class="label">Overview</div>
+      <div class="value">An AI-powered web app where job seekers (especially freshers) upload their resume as a PDF/DOCX, paste a job description, and receive an AI-rewritten resume optimized for that specific JD — with better keywords, improved phrasing, and ATS-friendly formatting. No job-matching engine in v1; the AI does the heavy lifting.</div>
+    </div>
+
+    <div class="card">
+      <div class="label">Core MVP Features</div>
+      <ul class="feature-list">
+        <li><i class="ti ti-circle-check"></i><span>Resume upload — accept PDF and DOCX files, extract raw text from them</span></li>
+        <li><i class="ti ti-circle-check"></i><span>JD input — a textarea where the user pastes the full job description</span></li>
+        <li><i class="ti ti-circle-check"></i><span>AI rewrite — Claude API reads both and returns an optimized, rewritten resume</span></li>
+        <li><i class="ti ti-circle-check"></i><span>Result display — show the rewritten resume in a clean, readable format</span></li>
+        <li><i class="ti ti-circle-check"></i><span>Copy/download — let the user copy or download the result as plain text</span></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="label">User Flow</div>
+      <ol style="padding-left: 1.2rem; margin: 0;">
+        <li style="font-size: 14px; color: var(--color-text-primary); padding: 5px 0; line-height: 1.5;">User lands on homepage — sees a clean upload box and a textarea</li>
+        <li style="font-size: 14px; color: var(--color-text-primary); padding: 5px 0; line-height: 1.5;">User uploads their resume (PDF or DOCX)</li>
+        <li style="font-size: 14px; color: var(--color-text-primary); padding: 5px 0; line-height: 1.5;">User pastes the job description into the textarea</li>
+        <li style="font-size: 14px; color: var(--color-text-primary); padding: 5px 0; line-height: 1.5;">User clicks "Optimize Resume" — a loading state appears</li>
+        <li style="font-size: 14px; color: var(--color-text-primary); padding: 5px 0; line-height: 1.5;">AI rewrites the resume, result renders on the same page</li>
+        <li style="font-size: 14px; color: var(--color-text-primary); padding: 5px 0; line-height: 1.5;">User copies or downloads the optimized resume</li>
+      </ol>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="label">Business Logic & Rules</div>
+        <ul class="feature-list">
+          <li><i class="ti ti-point"></i>Both resume and JD must be provided before submitting</li>
+          <li><i class="ti ti-point"></i>Max file size: 5MB</li>
+          <li><i class="ti ti-point"></i>Only PDF/DOCX accepted — reject other formats with a clear error</li>
+          <li><i class="ti ti-point"></i>AI must preserve factual accuracy — no invented experiences</li>
+          <li><i class="ti ti-point"></i>Show a loading spinner during API call (can take 5–15 sec)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="label">Out of Scope (v1)</div>
+        <ul class="feature-list">
+          <li><i class="ti ti-x" style="color: var(--color-text-danger);"></i>Job matching / job board scraping</li>
+          <li><i class="ti ti-x" style="color: var(--color-text-danger);"></i>User accounts / login</li>
+          <li><i class="ti ti-x" style="color: var(--color-text-danger);"></i>Resume score / ATS score display</li>
+          <li><i class="ti ti-x" style="color: var(--color-text-danger);"></i>Save / history of past resumes</li>
+          <li><i class="ti ti-x" style="color: var(--color-text-danger);"></i>PDF export of the result</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Tech Stack -->
+  <div class="section">
+    <h3 class="section-title"><i class="ti ti-stack" aria-hidden="true"></i> Tech Stack</h3>
+    <div class="stack-grid">
+      <div class="stack-item"><div class="stack-key">Frontend</div><div class="stack-val">React + Vite</div></div>
+      <div class="stack-item"><div class="stack-key">Backend</div><div class="stack-val">FastAPI (Python)</div></div>
+      <div class="stack-item"><div class="stack-key">Styling</div><div class="stack-val">Tailwind CSS</div></div>
+      <div class="stack-item"><div class="stack-key">AI API</div><div class="stack-val">Claude API (claude-sonnet-4-6)</div></div>
+      <div class="stack-item"><div class="stack-key">PDF Parsing</div><div class="stack-val">PyMuPDF / pdfplumber</div></div>
+      <div class="stack-item"><div class="stack-key">DOCX Parsing</div><div class="stack-val">python-docx</div></div>
+      <div class="stack-item"><div class="stack-key">Database</div><div class="stack-val">None (stateless, v1)</div></div>
+      <div class="stack-item"><div class="stack-key">Deploy</div><div class="stack-val">Vercel (frontend) + Railway (backend)</div></div>
+    </div>
+    <div class="card" style="margin-top: 10px;">
+      <div class="label">Why this stack?</div>
+      <div class="value">FastAPI handles file uploads cleanly in Python, which is also where your PDF/DOCX parsing libraries live. React + Vite gives a fast, modern frontend. Claude API is the core AI brain. No database needed in v1 — everything is stateless per request.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Checkpoints -->
+  <div class="section">
+    <h3 class="section-title"><i class="ti ti-git-commit" aria-hidden="true"></i> Build Milestones (Git Checkpoints)</h3>
+    <div class="card">
+      <div class="checkpoint-row">
+        <div class="checkpoint-num">1</div>
+        <div><div class="checkpoint-text">Project scaffold — React + Vite frontend boots, FastAPI backend runs on localhost</div><div class="checkpoint-tag">git commit: "chore: project scaffold"</div></div>
+      </div>
+      <div class="checkpoint-row">
+        <div class="checkpoint-num">2</div>
+        <div><div class="checkpoint-text">File upload works — user can upload PDF/DOCX, backend extracts raw text and returns it</div><div class="checkpoint-tag">git commit: "feat: file upload and text extraction"</div></div>
+      </div>
+      <div class="checkpoint-row">
+        <div class="checkpoint-num">3</div>
+        <div><div class="checkpoint-text">Claude API connected — resume text + JD sent to Claude, raw response returned and displayed</div><div class="checkpoint-tag">git commit: "feat: claude api integration"</div></div>
+      </div>
+      <div class="checkpoint-row">
+        <div class="checkpoint-num">4</div>
+        <div><div class="checkpoint-text">MVP complete — full flow works end-to-end: upload → JD input → optimize → display result → copy/download</div><div class="checkpoint-tag">git commit: "feat: mvp complete"</div></div>
+      </div>
+      <div class="checkpoint-row">
+        <div class="checkpoint-num">5</div>
+        <div><div class="checkpoint-text">Polish — loading states, error handling, responsive design, deploy to Vercel + Railway</div><div class="checkpoint-tag">git commit: "feat: polish and deploy"</div></div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Risk Areas -->
+  <div class="section">
+    <h3 class="section-title"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Risk Areas to Watch</h3>
+    <div class="card">
+      <div class="risk-row"><i class="ti ti-alert-circle"></i><span>CORS errors between React frontend and FastAPI backend — configure CORS headers on the backend from day 1</span></div>
+      <div class="risk-row"><i class="ti ti-alert-circle"></i><span>PDF text extraction fails on scanned/image-based resumes — show a clear error message, don't silently fail</span></div>
+      <div class="risk-row"><i class="ti ti-alert-circle"></i><span>Claude API response time is slow (5–15s) — always show a loading spinner, never leave the user staring at a blank screen</span></div>
+      <div class="risk-row"><i class="ti ti-alert-circle"></i><span>API key exposed in frontend — NEVER put the Claude API key in React code, always call it through FastAPI backend</span></div>
+      <div class="risk-row"><i class="ti ti-alert-circle"></i><span>Claude hallucinating new experiences — add a strict prompt instruction: "only rephrase and restructure, never invent"</span></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Rules File -->
+  <div class="section">
+    <h3 class="section-title"><i class="ti ti-settings" aria-hidden="true"></i> .cursorrules (paste this into your project)</h3>
+    <div class="rule-block">
+# AI Resume Analyzer — Cursor Rules<br><br>
+## Stack<br>
+- Frontend: React + Vite + Tailwind CSS<br>
+- Backend: Python FastAPI<br>
+- AI: Claude API via backend only<br><br>
+## Code Style<br>
+- Use TypeScript for all React files<br>
+- Functional components only, use React hooks<br>
+- Tailwind for ALL styling — no inline styles, no CSS files<br>
+- Python: PEP8 style, type hints on all functions<br><br>
+## Security Rules<br>
+- NEVER put the Claude API key in any frontend file<br>
+- All Claude API calls go through the FastAPI backend<br>
+- Validate file type and size on both frontend and backend<br><br>
+## Behavior Rules<br>
+- Make minimal changes — don't refactor unrelated code<br>
+- Always explain what you changed and why<br>
+- No TODOs left in code — everything must work<br>
+- Show loading states for any async operation<br>
+- Handle errors with user-friendly messages, not raw stack traces
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- First 3 Actions -->
+  <div class="section">
+    <h3 class="section-title"><i class="ti ti-rocket" aria-hidden="true"></i> First 3 Actions (do these today)</h3>
+    <div class="card">
+      <div class="action-row">
+        <div class="action-num">1</div>
+        <div><div class="action-text">Create a GitHub repo named <code>ai-resume-analyzer</code>, clone it locally, open in Cursor</div><div class="action-sub">Then paste this entire PRD into Cursor chat and say: "Scaffold the project with React+Vite frontend and FastAPI backend in separate folders"</div></div>
+      </div>
+      <div class="action-row">
+        <div class="action-num">2</div>
+        <div><div class="action-text">Copy the .cursorrules above into a file called <code>.cursorrules</code> in the project root</div><div class="action-sub">This locks the AI's behavior for every session going forward</div></div>
+      </div>
+      <div class="action-row">
+        <div class="action-num">3</div>
+        <div><div class="action-text">Build Checkpoint 1 — get both frontend and backend running on localhost</div><div class="action-sub">Once you see React app on :5173 and FastAPI docs on :8000, commit: <code>git commit -m "chore: project scaffold"</code></div></div>
+      </div>
+    </div>
+  </div>
+</div>
